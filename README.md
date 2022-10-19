@@ -13,7 +13,7 @@ Az alkalmazás egy söröket értékelő alkalmazás. A felhasználó a profilj�
 
 ## Főbb funkciók
 
-Az alkalmazásban lehetőség van egy új fiók létrehozására, fiókba való belépésre és belépés után a fiók adatainak módosítására. Az adatok módosítására példa: jelszó, név, email, stb.
+Az alkalmazásban lehetőség van egy új fiók létrehozására, fiókba való belépésre és belépés után a fiók adatainak módosítására. Az adatok módosítására példa: jelszó, név, email, stb. Valamint lehetősége van a velhasználónak kilépnie a saját profiljából.
 
 Az alkalmazás listázni fogja az általunk értékelt söröket. Ezeket az értékeléseket meg lehet nyitni, lehet szerkeszteni és lehet majd törölni is. A törlés és a módosítást nem csak a listázákor lehet majd megtenni, hanem, akkor is ha megnyitottuk az értékelést. Az értékelés 5 csillaggal lehet majd elvégezni, ahol fél csillagonként tudjuk növelni az értéket.
 
