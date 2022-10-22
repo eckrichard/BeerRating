@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">BeerRating</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <!-- Strings related to login -->
+    <string name="mainText">Nincs bejelentkezve, ezért nem tudjuk megjeleníteni a korábban már értékelt söreit. Kérem jelentkezzen be vagy regisztráljon!</string>
+    <string name="password">Jelszó:</string>
+    <string name="username">Felhasználónév:</string>
+    <string name="login">Bejelentkezés</string>
+    <string name="registration">Regisztráció</string>
+    <string name="e_mail">E-mail:</string>
+    <string name="password_confirmation">Jelszó megerősítése:</string>
+    <string name="dob">Születési dátum:</string>
+    <string name="forename">Keresztnév:</string>
+    <string name="surename">Vezetéknév:</string>
+    <string name="sex">Nem:</string>
+    <string name="female">Nő</string>
+    <string name="male">Férfi</string>
+    <string name="other">Egyéb</string>
+    <string name="rating">Pontszám:</string>
+    <string name="alc">ALC/VOL</string>
+    <string name="regdate">Regisztrált:</string>
+    <string name="updateProfile">Profil frissítése</string>
+    <string name="profileText">Ha szeretné megváltoztatni a jelszavát vagy a profilját szeretné frissíteni, akkor nyomjon a PROFIL FRISSITÉSE gombra vagy az JELSZÓ MEGVÁLTOZTATÁSA gombra. Ha kiszeretne lépni nyomjon a KIJELENTKEZÉS gombra</string>
+    <string name="lougout">KIJELENTKEZÉS</string>
+    <string name="changepass">JELSZÓ MEGVÁLTOZTATÁSA</string>
+    <string name="oldPass">Régi jelszó:</string>
+    <string name="newpassword">új jelszó:</string>
+    <string name="newPassCon">Új jelszó megerősítése:</string>
+    <string name="save">Mentés</string>
+    <string name="beerbrewery">Sörfőzde:</string>
+    <string name="beercategory">Kategória:</string>
+    <string name="beername">Sör neve:</string>
+    <string name="LastReviewDate">Utolsó értékelés dátuma:</string>
+    <string name="beerDetails">Leírás:</string>
+    <string name="opinion">Vélemény:</string>
+    <string name="brewerypostcode">Sörfőzde irányítószáma:</string>
+    <string name="breweryaddress">Sörfőzde címe:</string>
+    <string name="breweryname">Sörfőzde neve:</string>
+    <string name="brewerycountry">Sörfőzde országa:</string>
+</resources>
