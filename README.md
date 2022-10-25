@@ -1,30 +1,31 @@
 # Házi feladat specifikáció
 
-Információk [itt](https://viauac00.github.io/laborok/hf)
-
 ## Mobil- és webes szoftverek
-### [Dátum]
-### [Alkalmazás neve]
-### [Teljes név] - ([Neptun kód])
-### [e-mail cím] 
-### Laborvezető: [Laborvezető neve]
+### 2022.10.19.
+### BeerRating
+### Eck Richárd - (KLH5TQ)
+### eckrichard01@gmail.com
+### Laborvezető: Sipos Tamás
 
 ## Bemutatás
 
-Az alkalmazás rövid, 2-3 mondatos bemutatása. Honnan az ötlet, mi szülte az igényt, ki lehetne a célközönség.
-A laboron és előadáson bemutatott alkalmazásokat nem lehet házi feladatnak választani.
+Az alkalmazás egy söröket értékelő alkalmazás. A felhasználó a profiljába belépés után tudja értékelni az általa fogyasztot söröket, amiket ivott, így nyilvántartva az általa már fogyasztot söröket. Az ötletet az szülte, hogy szeretek új söröket kipróbálni és sokkszor nem emlékszem rá, hogy egy adott sört ittam-e már vagy sem és ha ittam mennyire tetszett. Az alkalmazás közönsége olyan sorfogyasztók lehetnének, akik hozzám hasonlóan szeretnék nyilvántartani a sörélményeiket.
 
 ## Főbb funkciók
 
-Az alkalmazás minden funkciójára kiterjedő leírás (röviden, lényegre törően). Legyen egyértelműen eldönthető, hogy az adott funkció implementálva van-e!
-Pl.: Az alkalmazással lehetőség van tételek felvételére és tárolására, valamint azok rendezett megjelenítésére, illetve frissítésre X hálózati hívás segítségével.
+Az alkalmazásban lehetőség van egy új fiók létrehozására, fiókba való belépésre és belépés után a fiók adatainak módosítására. Az adatok módosítására példa: jelszó, név, email, stb. Valamint lehetősége van a velhasználónak kilépnie a saját profiljából.
+
+Az alkalmazás listázni fogja az általunk értékelt söröket. Ezeket az értékeléseket meg lehet nyitni, lehet szerkeszteni és lehet majd törölni is. Az értékelés 5 csillaggal lehet majd elvégezni, ahol fél csillagonként tudjuk növelni az értéket.
+
+Lehetőség lesz az alkalmazásban új értékelések, sörök, sörfőzdék és kategóriák felvételére is.
+
+Az adatokat egy online adatbáziban lesznek tárolva.
 
 ## Választott technológiák:
 
-- (UI)
-- (fragmentek)
-- (RecyclerView)
-- (Perzisztens adattárolás)
-
-
-#Házi feladat dokumentáció (ha nincs, ez a fejezet törölhető)
+- UI
+- fragmentek
+- RecyclerView
+- Perzisztens adattárolás
+- Stílusok/témák
+- Hálózati komunikáció
