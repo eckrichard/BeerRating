@@ -16,7 +16,7 @@
             android:textSize="18sp" />
 
         <EditText
-            android:id="@+id/etbeername"
+            android:id="@+id/etbreweryName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
@@ -27,7 +27,7 @@
             android:textSize="18sp" />
 
         <EditText
-            android:id="@+id/etbeercategory"
+            android:id="@+id/etcountry"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
@@ -38,7 +38,19 @@
             android:textSize="18sp" />
 
         <EditText
-            android:id="@+id/etPassword"
+            android:id="@+id/etetpostcode"
+            android:layout_width="95dp"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/brewerycity"
+            android:textSize="18sp" />
+
+        <EditText
+            android:id="@+id/etcity"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
@@ -49,12 +61,12 @@
             android:textSize="18sp" />
 
         <EditText
-            android:id="@+id/etBeerDetails"
+            android:id="@+id/etaddress"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
         <Button
-            android:id="@+id/btnSave"
+            android:id="@+id/btnSave_brew"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="right"

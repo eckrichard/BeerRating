@@ -38,4 +38,16 @@
     <string name="breweryaddress">Sörfőzde címe:</string>
     <string name="breweryname">Sörfőzde neve:</string>
     <string name="brewerycountry">Sörfőzde országa:</string>
+    <string name="loginfailed">Belépési hiba! A felhasználónév vagy a jelszó hibás!</string>
+    <string name="newpassincor">Az új jelszó nem egyezik meg a jelszó megerősítésével!</string>
+    <string name="oldpassincor">A régi jelszó nem helyes!</string>
+    <string name="passsaved">Az új jelszó elmentve!</string>
+    <string name="reviewupdate">Az értékelés frissült!</string>
+    <string name="reviewdeleted">Az értékelés törölve!</string>
+    <string name="newreview">Új értékelés elmentve!</string>
+    <string name="newbeer">Az új sör elmentve!</string>
+    <string name="newcategory">Az új kategória elmentve!</string>
+    <string name="brewerycity">Sörfőzde városa:</string>
+    <string name="newbrewery">Az új sörfőzde elmentve!</string>
+    <string name="globalrating">Global rating:</string>
 </resources>

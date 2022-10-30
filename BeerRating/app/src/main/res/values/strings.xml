@@ -35,4 +35,16 @@
     <string name="brewerycountry">Brewery country:</string>
     <string name="brewerypostcode">Brewery postcode:</string>
     <string name="breweryaddress">Brewery address:</string>
+    <string name="loginfailed">Login failed! Username or password not correct!</string>
+    <string name="newpassincor">The new password does not match the password confirmation!</string>
+    <string name="oldpassincor">Old password incorrect!</string>
+    <string name="passsaved">New password saved!</string>
+    <string name="reviewupdate">Review updated!</string>
+    <string name="reviewdeleted">Review deleted!</string>
+    <string name="newreview">New review saved!</string>
+    <string name="newbeer">New beer saved!</string>
+    <string name="newcategory">New category saved!</string>
+    <string name="brewerycity">Brewery city:</string>
+    <string name="newbrewery">New brewery saved!</string>
+    <string name="globalrating">Global rating:</string>
 </resources>

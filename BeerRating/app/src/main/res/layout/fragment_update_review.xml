@@ -15,10 +15,12 @@
             android:text="@string/beername"
             android:textSize="18sp" />
 
-        <Spinner
-            android:id="@+id/spBeer"
+        <TextView
+            android:id="@+id/tvBeerName"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:text = "@string/beername"
+            android:textSize="15sp"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -46,7 +48,7 @@
             android:inputType="textEmailAddress" />
 
         <Button
-            android:id="@+id/btnSave"
+            android:id="@+id/btnSave_updateReview"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="right"

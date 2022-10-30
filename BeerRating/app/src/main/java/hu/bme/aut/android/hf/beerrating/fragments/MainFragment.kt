@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
+import hu.bme.aut.android.hf.beerrating.MainActivity
 import hu.bme.aut.android.hf.beerrating.R
 import hu.bme.aut.android.hf.beerrating.databinding.FragmentMainBinding
 
@@ -34,10 +35,13 @@ class MainFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.btnLogin.setOnClickListener {
+        //TODO snackbar inkább
+        (activity as MainActivity).binding.ibProfile.setOnClickListener (null)
+
+        binding.btnLoginMain.setOnClickListener {
             findNavController().navigate(R.id.action_mainFragment_to_logIn)
         }
-        binding.btnRegister.setOnClickListener {
+        binding.btnRegisterMain.setOnClickListener {
             findNavController().navigate(R.id.action_mainFragment_to_register)
         }
     }

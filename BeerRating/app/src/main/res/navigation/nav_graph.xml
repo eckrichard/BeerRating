@@ -25,8 +25,8 @@
             android:id="@+id/action_newReview_to_addNewBeer"
             app:destination="@id/addNewBeer" />
         <action
-            android:id="@+id/action_newReview_to_newBrewery"
-            app:destination="@id/newBrewery" />
+            android:id="@+id/action_newReview_to_profileView"
+            app:destination="@id/profileView" />
     </fragment>
     <fragment
         android:id="@+id/loggedIn"
@@ -48,7 +48,7 @@
     </fragment>
     <fragment
         android:id="@+id/addNewBeer"
-        android:name="hu.bme.aut.android.hf.beerrating.fragments.AddNewBeer"
+        android:name="hu.bme.aut.android.hf.beerrating.fragments.NewBeer"
         android:label="fragment_add_new_beer"
         tools:layout="@layout/fragment_add_new_beer" >
         <action
@@ -57,12 +57,19 @@
         <action
             android:id="@+id/action_addNewBeer_to_newCategory"
             app:destination="@id/newCategory" />
+        <action
+            android:id="@+id/action_addNewBeer_to_profileView"
+            app:destination="@id/profileView" />
     </fragment>
     <fragment
         android:id="@+id/newBrewery"
         android:name="hu.bme.aut.android.hf.beerrating.fragments.NewBrewery"
         android:label="fragment_new_brewery"
-        tools:layout="@layout/fragment_new_brewery" />
+        tools:layout="@layout/fragment_new_brewery" >
+        <action
+            android:id="@+id/action_newBrewery_to_profileView"
+            app:destination="@id/profileView" />
+    </fragment>
     <fragment
         android:id="@+id/register"
         android:name="hu.bme.aut.android.hf.beerrating.fragments.Register"
@@ -80,6 +87,9 @@
         <action
             android:id="@+id/action_reviewView_to_updateReview"
             app:destination="@id/updateReview" />
+        <action
+            android:id="@+id/action_reviewView_to_profileView"
+            app:destination="@id/profileView" />
     </fragment>
     <fragment
         android:id="@+id/updateReview"
@@ -87,8 +97,8 @@
         android:label="fragment_update_review"
         tools:layout="@layout/fragment_update_review" >
         <action
-            android:id="@+id/action_updateReview_to_newBrewery"
-            app:destination="@id/newBrewery" />
+            android:id="@+id/action_updateReview_to_profileView"
+            app:destination="@id/profileView" />
     </fragment>
     <fragment
         android:id="@+id/logIn"
@@ -115,15 +125,27 @@
         android:id="@+id/updateProfile"
         android:name="hu.bme.aut.android.hf.beerrating.fragments.UpdateProfile"
         android:label="fragment_update_profile"
-        tools:layout="@layout/fragment_update_profile" />
+        tools:layout="@layout/fragment_update_profile" >
+        <action
+            android:id="@+id/action_updateProfile_to_profileView"
+            app:destination="@id/profileView" />
+    </fragment>
     <fragment
         android:id="@+id/changePass"
         android:name="hu.bme.aut.android.hf.beerrating.fragments.ChangePass"
         android:label="fragment_change_pass"
-        tools:layout="@layout/fragment_change_pass" />
+        tools:layout="@layout/fragment_change_pass" >
+        <action
+            android:id="@+id/action_changePass_to_profileView"
+            app:destination="@id/profileView" />
+    </fragment>
     <fragment
         android:id="@+id/newCategory"
-        android:name="hu.bme.aut.android.hf.beerrating.newCategory"
+        android:name="hu.bme.aut.android.hf.beerrating.fragments.newCategory"
         android:label="fragment_new_category"
-        tools:layout="@layout/fragment_new_category" />
+        tools:layout="@layout/fragment_new_category" >
+        <action
+            android:id="@+id/action_newCategory_to_profileView"
+            app:destination="@id/profileView" />
+    </fragment>
 </navigation>

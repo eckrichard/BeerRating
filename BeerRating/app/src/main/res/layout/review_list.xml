@@ -8,14 +8,15 @@
     android:paddingBottom="8dp"
     android:paddingLeft="16dp"
     android:paddingRight="16dp"
-    android:paddingTop="8dp">
+    android:paddingTop="8dp"
+    android:id="@+id/list_item">
 
     <ImageView
         android:id="@+id/ivIcon"
         android:layout_width="64dp"
         android:layout_height="64dp"
         android:layout_marginLeft="8dp"
-        tools:src="@drawable/picture_not_found" />
+        android:src="@drawable/picture_not_found" />
 
     <LinearLayout
         android:layout_width="0dp"
@@ -28,19 +29,19 @@
             android:id="@+id/tvBeerName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            tools:text="BeerName" />
+            android:text="BeerName" />
 
         <TextView
             android:id="@+id/tvBreweryName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            tools:text="BreweryName" />
+            android:text="BreweryName" />
 
         <TextView
             android:id="@+id/tvBeerCategory"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            tools:text="BeerCategory" />
+            android:text="BeerCategory" />
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -48,16 +49,16 @@
             android:orientation="horizontal">
 
             <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/alc" />
+
+            <TextView
                 android:id="@+id/tvALCVOL"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                tools:text="ALC/VOL" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 android:layout_marginLeft="8dp"
-                tools:text="@string/alc" />
+                android:text="ALC/VOL" />
         </LinearLayout>
 
         <LinearLayout
@@ -68,21 +69,21 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                tools:text="@string/rating" />
+                android:text="@string/rating" />
 
             <TextView
                 android:id="@+id/tvRating"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="8dp"
-                tools:text="Rating" />
+                android:text="Rating" />
         </LinearLayout>
 
         <TextView
             android:id="@+id/tvLastReviewDate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            tools:text="LastReviewDate" />
+            android:text="LastReviewDate" />
     </LinearLayout>
 
     <ImageButton

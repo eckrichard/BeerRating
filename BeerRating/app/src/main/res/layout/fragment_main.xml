@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="20dp"
-    tools:context=".MainFragment">
+    tools:context="fragments.MainFragment">
 
 
     <TextView
@@ -15,14 +15,14 @@
         android:textSize="20sp" />
 
     <Button
-        android:id="@+id/btnLogin"
+        android:id="@+id/btn_Login_main"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:text="@string/login" />
 
     <Button
-        android:id="@+id/btnRegister"
+        android:id="@+id/btnRegister_main"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
