@@ -50,4 +50,7 @@
     <string name="brewerycity">Sörfőzde városa:</string>
     <string name="newbrewery">Az új sörfőzde elmentve!</string>
     <string name="globalrating">Global rating:</string>
+    <string name="updateprofile">Profil frissítve!</string>
+    <string name="alreadyexist">A felhasználónév vagy az e-mail már foglalt!</string>
+    <string name="regsuccess">Sikeres regisztráció!</string>
 </resources>

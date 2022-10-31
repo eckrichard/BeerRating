@@ -64,7 +64,10 @@ class LoggedIn : Fragment(), ReviewAdapter.ReviewClickListener {
         dbDelete = DBDelete(mainActivity.dbHelper)
         dbSelect = DBSelect(mainActivity.dbHelper)
 
-        dbSelect.LoadData(database)
+        if (database.sexs.size == 0)
+            dbSelect.LoadData(database)
+        else
+            dbSelect.refreshReviews(database)
 
         (activity as MainActivity).binding.ibProfile.setOnClickListener {
             findNavController().navigate(R.id.action_loggedIn_to_profileView)

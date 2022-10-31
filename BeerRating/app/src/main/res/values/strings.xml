@@ -47,4 +47,7 @@
     <string name="brewerycity">Brewery city:</string>
     <string name="newbrewery">New brewery saved!</string>
     <string name="globalrating">Global rating:</string>
+    <string name="updateprofile">Profile updated!</string>
+    <string name="alreadyexist">Username or e-mail already taken!</string>
+    <string name="regsuccess">Registration successful!</string>
 </resources>

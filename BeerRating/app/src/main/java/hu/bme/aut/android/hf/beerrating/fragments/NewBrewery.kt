@@ -58,7 +58,8 @@ class NewBrewery : Fragment() {
                 binding.etetpostcode.text.toString().toInt(),
                 binding.etcity.text.toString(),
                 binding.etaddress.text.toString())
-            dbSelect.LoadData(database)
+            //dbSelect.LoadData(database)
+            dbSelect.refreshBreweries(database)
             findNavController().popBackStack()
             Snackbar.make(it, R.string.newbrewery, Snackbar.LENGTH_LONG).show()
         }

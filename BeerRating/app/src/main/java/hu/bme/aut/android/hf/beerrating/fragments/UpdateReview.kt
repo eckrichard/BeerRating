@@ -64,7 +64,8 @@ class UpdateReview : Fragment() {
 
             database.review.rating = binding.ratingBar.rating
             dbUpdate.updateReview(binding.ratingBar.rating, binding.etOpinion.text.toString(), date, database)
-            dbSelect.LoadData(database)
+            //dbSelect.LoadData(database)
+            dbSelect.refreshReviews(database)
             findNavController().popBackStack()
             Snackbar.make(it, R.string.reviewupdate, Snackbar.LENGTH_LONG).show()
         }

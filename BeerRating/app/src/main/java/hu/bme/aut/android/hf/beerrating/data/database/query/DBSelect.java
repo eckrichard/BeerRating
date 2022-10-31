@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 import hu.bme.aut.android.hf.beerrating.data.DataFromDB;
 import hu.bme.aut.android.hf.beerrating.data.database.dbHelper;
@@ -64,6 +65,39 @@ public class DBSelect extends DBQuery {
             e.printStackTrace();
         }
         this.getDbHelper().disconnect();
+    }
+
+    public boolean checkUserAlreadyExist(String username, String email){
+        String sql = "SELECT * FROM users " +
+                "WHERE username = ? OR email = ?";
+
+        AtomicBoolean exist = new AtomicBoolean(false);
+
+        Thread dbThread = new Thread(() -> {
+            this.getDbHelper().connect();
+            try {
+                Connection connection = this.getDbHelper().getConnection();
+                PreparedStatement statement = connection.prepareStatement(sql);
+                statement.setString(1, username);
+                statement.setString(2, email);
+                ResultSet rs = statement.executeQuery();
+                if(rs.next()){
+                    exist.set(true);
+                }
+                rs.close();
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
+            }
+        });
+        dbThread.start();
+        try
+        {
+            dbThread.join();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        this.getDbHelper().disconnect();
+        return exist.get();
     }
 
     public void LoadData(DataFromDB data){
@@ -253,5 +287,37 @@ public class DBSelect extends DBQuery {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+    }
+
+    public void refreshBeers(DataFromDB data){
+        data.getBeers().clear();
+        this.getDbHelper().connect();
+        selectBeer(data);
+        this.getDbHelper().disconnect();
+    }
+
+    public void refreshCategories(DataFromDB data){
+        data.getCategorys().clear();
+        this.getDbHelper().connect();
+        selectCategory(data);
+        this.getDbHelper().disconnect();
+    }
+
+    public void refreshBreweries(DataFromDB data){
+        data.getBrewerys().clear();
+        this.getDbHelper().connect();
+        selectBrewery(data);
+        this.getDbHelper().disconnect();
+    }
+
+    public void refreshReviews(DataFromDB data){
+        for (Reviews review : data.getReviews()){
+            review.getBeer().getRatings().clear();
+            review.getBeer().setRatingCount(0);
+        }
+        data.getReviews().clear();
+        this.getDbHelper().connect();
+        selectReview(data);
+        this.getDbHelper().disconnect();
     }
 }

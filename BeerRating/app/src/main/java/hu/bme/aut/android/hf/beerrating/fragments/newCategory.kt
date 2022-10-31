@@ -55,7 +55,8 @@ class newCategory : Fragment() {
 
         binding.btnSaveNc.setOnClickListener {
             dbInsert.insertCategory(binding.etbeername.text.toString())
-            dbSelect.LoadData(database)
+            //dbSelect.LoadData(database)
+            dbSelect.refreshCategories(database)
             findNavController().popBackStack()
             Snackbar.make(it, R.string.newcategory, Snackbar.LENGTH_LONG).show()
         }

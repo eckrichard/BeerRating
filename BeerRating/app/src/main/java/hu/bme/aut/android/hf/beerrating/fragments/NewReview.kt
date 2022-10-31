@@ -77,7 +77,8 @@ class NewReview : Fragment() {
             val beerId = database.beers.get(binding.spBeer.selectedItemPosition).id
 
             dbInsert.insertReview(binding.ratingBar.rating, binding.etOpinion.text.toString(), date, beerId, database)
-            dbSelect.LoadData(database)
+            //dbSelect.LoadData(database)
+            dbSelect.refreshReviews(database)
             findNavController().popBackStack()
             Snackbar.make(it, R.string.newreview, Snackbar.LENGTH_LONG).show()
         }

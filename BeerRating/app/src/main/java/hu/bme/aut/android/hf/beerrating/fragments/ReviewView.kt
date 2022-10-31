@@ -29,7 +29,6 @@ class ReviewView : Fragment() {
     private lateinit var binding : FragmentReviewViewBinding
 
     private lateinit var database: DataFromDB
-    private lateinit var dbSelect: DBSelect
     private lateinit var dbDelete: DBDelete
 
     override fun onCreateView(
@@ -46,7 +45,6 @@ class ReviewView : Fragment() {
 
         val mainActivity: MainActivity = activity as MainActivity
         database = mainActivity.dataFromDB!!
-        dbSelect = DBSelect(mainActivity.dbHelper)
         dbDelete = DBDelete(mainActivity.dbHelper)
 
         binding.tvBeerName.text = database.review.beer.name

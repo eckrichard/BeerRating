@@ -109,4 +109,12 @@ public class Beers {
   public void removeRating(float rating){
     this.ratings.remove(rating);
   }
+
+  public ArrayList<Float> getRatings() {
+    return ratings;
+  }
+
+  public void setRatingCount(int ratingCount) {
+    this.ratingCount = ratingCount;
+  }
 }

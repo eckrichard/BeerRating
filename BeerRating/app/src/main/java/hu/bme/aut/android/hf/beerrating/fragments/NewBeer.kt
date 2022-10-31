@@ -74,7 +74,8 @@ class NewBeer : Fragment() {
                 binding.etalc.text.toString().toFloat(),
                 database.brewerys.get(binding.spBeerBrewery.selectedItemPosition).id,
                 binding.etBeerDetails.text.toString())
-            dbSelect.LoadData(database)
+            //dbSelect.LoadData(database)
+            dbSelect.refreshBeers(database)
             findNavController().popBackStack()
             Snackbar.make(it, R.string.newbeer, Snackbar.LENGTH_LONG).show()
         }
