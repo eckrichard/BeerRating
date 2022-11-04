@@ -9,8 +9,6 @@ import androidx.navigation.fragment.findNavController
 import com.google.android.material.snackbar.Snackbar
 import hu.bme.aut.android.hf.beerrating.MainActivity
 import hu.bme.aut.android.hf.beerrating.R
-import hu.bme.aut.android.hf.beerrating.data.DataFromDB
-import hu.bme.aut.android.hf.beerrating.data.database.dbHelper
 import hu.bme.aut.android.hf.beerrating.data.database.query.DBSelect
 import hu.bme.aut.android.hf.beerrating.databinding.FragmentLogInBinding
 
@@ -39,17 +37,21 @@ class LogIn : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        (activity as MainActivity).binding.ibProfile.setOnClickListener (null)
+        val mainActivity: MainActivity? = activity as MainActivity?
+        if (mainActivity != null) {
+            mainActivity.binding.ibProfile.setOnClickListener (null)
+        }
 
         binding.btnLoginLogin.setOnClickListener {
-            val mainActivity: MainActivity? = activity as MainActivity?
-            if (mainActivity != null) {
-                var dataFromDB = mainActivity.dataFromDB
-                var dbSelect = DBSelect(mainActivity.dbHelper)
-                dbSelect.checkLogin(binding.etUsername.text.toString(), binding.etPassword.text.toString(), dataFromDB)
 
-                if (dataFromDB != null) {
-                    if (dataFromDB.user != null && dataFromDB.user.password.equals(binding.etPassword.text.toString())){
+            if (mainActivity != null) {
+                var database = mainActivity.dataFromDB
+                var dbSelect = DBSelect(mainActivity.dbHelper)
+
+                dbSelect.checkLogin(binding.etUsername.text.toString(), binding.etPassword.text.toString(), database)
+
+                if (database != null) {
+                    if (database.user != null && database.user.password.equals(binding.etPassword.text.toString())){
 
                         binding.etUsername.text.clear()
                         binding.etPassword.text.clear()

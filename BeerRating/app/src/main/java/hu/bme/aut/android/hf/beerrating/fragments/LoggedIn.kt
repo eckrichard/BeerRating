@@ -77,6 +77,12 @@ class LoggedIn : Fragment(), ReviewAdapter.ReviewClickListener {
             findNavController().navigate(R.id.action_loggedIn_to_newReview)
         }
 
+        binding.swipeToRefresh.setOnRefreshListener {
+            dbSelect.refreshReviews(database)
+            loadReviews()
+            binding.swipeToRefresh.isRefreshing = false
+        }
+
         initRecyclerView()
     }
 
