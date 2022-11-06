@@ -69,14 +69,5 @@ class ReviewView : Fragment() {
         binding.ibMod.setOnClickListener {
             findNavController().navigate(R.id.action_reviewView_to_updateReview)
         }
-
-        val callback: OnBackPressedCallback =
-            object : OnBackPressedCallback(true) {
-                override fun handleOnBackPressed() {
-                    database.review = null
-                    findNavController().popBackStack()
-                }
-            }
-        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, callback)
     }
 }

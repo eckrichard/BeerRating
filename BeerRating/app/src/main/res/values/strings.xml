@@ -50,4 +50,5 @@
     <string name="updateprofile">Profile updated!</string>
     <string name="alreadyexist">Username or e-mail already taken!</string>
     <string name="regsuccess">Registration successful!</string>
+    <string name="beerrating">BeerRating</string>
 </resources>

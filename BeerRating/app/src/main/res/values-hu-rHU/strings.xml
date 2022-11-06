@@ -53,4 +53,5 @@
     <string name="updateprofile">Profil frissítve!</string>
     <string name="alreadyexist">A felhasználónév vagy az e-mail már foglalt!</string>
     <string name="regsuccess">Sikeres regisztráció!</string>
+    <string name="beerrating">BeerRating</string>
 </resources>
