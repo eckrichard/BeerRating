@@ -14,7 +14,8 @@
     <EditText
         android:id="@+id/etOldPass"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/black"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -27,7 +28,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:inputType="textPassword"/>
+        android:inputType="textPassword"
+        android:backgroundTint="@color/black"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -40,7 +42,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:inputType="textPassword"/>
+        android:inputType="textPassword"
+        android:backgroundTint="@color/black"/>
 
     <Button
         android:id="@+id/btn_update"

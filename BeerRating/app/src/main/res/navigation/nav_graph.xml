@@ -15,6 +15,9 @@
         <action
             android:id="@+id/action_mainFragment_to_logIn"
             app:destination="@id/logIn" />
+        <action
+            android:id="@+id/action_mainFragment_to_loggedIn"
+            app:destination="@id/loggedIn" />
     </fragment>
     <fragment
         android:id="@+id/newReview"
@@ -141,7 +144,7 @@
     </fragment>
     <fragment
         android:id="@+id/newCategory"
-        android:name="hu.bme.aut.android.hf.beerrating.fragments.newCategory"
+        android:name="hu.bme.aut.android.hf.beerrating.fragments.NewCategory"
         android:label="fragment_new_category"
         tools:layout="@layout/fragment_new_category" >
         <action

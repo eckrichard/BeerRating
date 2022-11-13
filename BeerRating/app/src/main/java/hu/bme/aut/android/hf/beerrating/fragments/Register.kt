@@ -20,17 +20,6 @@ import hu.bme.aut.android.hf.beerrating.databinding.FragmentRegisterBinding
 import java.time.LocalDateTime
 import java.util.*
 
-
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [Register.newInstance] factory method to
- * create an instance of this fragment.
- */
 class Register : Fragment() {
     private lateinit var binding : FragmentRegisterBinding
     private lateinit var database: DataFromDB
@@ -46,7 +35,7 @@ class Register : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentRegisterBinding.inflate(inflater, container, false)
-        return binding.root;
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -63,76 +52,86 @@ class Register : Fragment() {
         binding.Female.isChecked = true
 
         val current = LocalDateTime.now()
-        binding.btndob.setText(datePickerHelper
+        binding.btndob.text = datePickerHelper
             .makeDateString(current.dayOfMonth,
                 current.monthValue,
-                current.year))
+                current.year)
 
         (activity as MainActivity).binding.ibProfile.setOnClickListener (null)
 
         binding.btndob.setOnClickListener {
-            openDatePicker(it)
+            openDatePicker()
         }
 
         binding.btnRegister.setOnClickListener {
-            var sexId: Int
+            if(binding.etEmail.text.toString().isNotEmpty() &&
+                binding.etPassword.text.toString().isNotEmpty() &&
+                binding.etPasswordAgain.text.toString().isNotEmpty() &&
+                binding.etUsername.text.toString().isNotEmpty() &&
+                binding.etForeName.text.toString().isNotEmpty() &&
+                binding.etSureName.text.toString().isNotEmpty()
+            )
+            {
+                val sexId: Int
 
-            if (binding.Female.isChecked)
-                sexId = 1
-            else if (binding.Male.isChecked)
-                sexId = 2
-            else
-                sexId = 3
+                sexId = if (binding.Female.isChecked)
+                    1
+                else if (binding.Male.isChecked)
+                    2
+                else
+                    3
 
-            val exist = dbSelect.checkUserAlreadyExist(binding.etUsername.text.toString(), binding.etEmail.text.toString())
-            val dobList = binding.btndob.text.toString().split(" ")
-            var day: String
-            if (dobList.get(2).toInt() <= 9)
-                day = "0" + dobList.get(2)
-            else
-                day = dobList.get(2)
+                val exist = dbSelect.checkUserAlreadyExist(binding.etUsername.text.toString(), binding.etEmail.text.toString())
+                val dobList = binding.btndob.text.toString().split(" ")
+                val day: String
+                if (dobList.get(2).toInt() <= 9)
+                    day = "0" + dobList.get(2)
+                else
+                    day = dobList.get(2)
 
-            val DoB = dobList.get(0) + "-" + datePickerHelper.getMonthFormat(dobList.get(1)) + "-" + day
+                val DoB = dobList.get(0) + "-" + datePickerHelper.getMonthFormat(dobList.get(1)) + "-" + day
 
-            if (!exist) {
-                dbInsert.insertUser(binding.etEmail.text.toString(),
-                    binding.etUsername.text.toString(),
-                    binding.etPassword.text.toString(),
-                    DoB,
-                    binding.etForeName.text.toString(),
-                    binding.etSureName.text.toString(),
-                    sexId)
+                if (!exist) {
+                    dbInsert.insertUser(binding.etEmail.text.toString(),
+                        binding.etUsername.text.toString(),
+                        binding.etPassword.text.toString(),
+                        DoB,
+                        binding.etForeName.text.toString(),
+                        binding.etSureName.text.toString(),
+                        sexId)
 
-                dbSelect.checkLogin(binding.etUsername.text.toString(),
-                    binding.etPassword.text.toString(),
-                    database)
+                    dbSelect.checkLogin(binding.etUsername.text.toString(),
+                        binding.etPassword.text.toString(),
+                        database)
 
-                findNavController().navigate(R.id.action_register_to_loggedIn)
-                Snackbar.make(it, R.string.regsuccess, Snackbar.LENGTH_LONG).show()
+                    findNavController().navigate(R.id.action_register_to_loggedIn)
+                    Snackbar.make(it, R.string.regsuccess, Snackbar.LENGTH_LONG).show()
+                }
+                else {
+                    binding.etEmail.setText("")
+                    binding.etUsername.setText("")
+                    binding.etPassword.setText("")
+                    binding.etPasswordAgain.setText("")
+                    binding.btndob.setText(datePickerHelper
+                        .makeDateString(current.dayOfMonth,
+                            current.monthValue,
+                            current.year))
+                    binding.etForeName.setText("")
+                    binding.etSureName.setText("")
+                    binding.Female.isChecked = true
+                    Snackbar.make(it, R.string.alreadyexist, Snackbar.LENGTH_LONG).show()
+                }
             }
-            else {
-                binding.etEmail.setText("")
-                binding.etUsername.setText("")
-                binding.etPassword.setText("")
-                binding.etPasswordAgain.setText("")
-                binding.btndob.setText(datePickerHelper
-                    .makeDateString(current.dayOfMonth,
-                        current.monthValue,
-                        current.year))
-                binding.etForeName.setText("")
-                binding.etSureName.setText("")
-                binding.Female.isChecked = true
-                Snackbar.make(it, R.string.alreadyexist, Snackbar.LENGTH_LONG).show()
+            else{
+                Snackbar.make(it, R.string.emptyData, Snackbar.LENGTH_LONG).show()
             }
-
         }
     }
 
     private fun initDatePicker(context: Context) {
         val dateSetListener =
             OnDateSetListener { datePicker, year, month, day ->
-                var month = month
-                month = month + 1
+                val month = month + 1
                 val date: String = datePickerHelper.makeDateString(day, month, year)
                 binding.btndob.setText(date)
             }
@@ -147,7 +146,7 @@ class Register : Fragment() {
         datePickerDialog = DatePickerDialog(context, style, dateSetListener, year, month, day)
     }
 
-    fun openDatePicker(view: View?) {
+    fun openDatePicker() {
         datePickerDialog.show()
     }
 }

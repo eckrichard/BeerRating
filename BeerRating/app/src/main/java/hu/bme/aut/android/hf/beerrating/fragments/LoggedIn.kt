@@ -13,22 +13,12 @@ import hu.bme.aut.android.hf.beerrating.MainActivity
 import hu.bme.aut.android.hf.beerrating.R
 import hu.bme.aut.android.hf.beerrating.adapter.ReviewAdapter
 import hu.bme.aut.android.hf.beerrating.data.DataFromDB
+import hu.bme.aut.android.hf.beerrating.data.SaveSharedPreference
 import hu.bme.aut.android.hf.beerrating.data.database.query.DBDelete
 import hu.bme.aut.android.hf.beerrating.data.database.query.DBSelect
 import hu.bme.aut.android.hf.beerrating.data.model.Reviews
 import hu.bme.aut.android.hf.beerrating.databinding.FragmentLoggedInBinding
 
-
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [LoggedIn.newInstance] factory method to
- * create an instance of this fragment.
- */
 class LoggedIn : Fragment(), ReviewAdapter.ReviewClickListener {
     private lateinit var binding : FragmentLoggedInBinding
 
@@ -49,16 +39,6 @@ class LoggedIn : Fragment(), ReviewAdapter.ReviewClickListener {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val callback: OnBackPressedCallback =
-            object : OnBackPressedCallback(true) {
-                override fun handleOnBackPressed() {
-                    database.user = null
-                    database.reviews.clear()
-                    findNavController().popBackStack()
-                }
-            }
-        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, callback)
-
         val mainActivity: MainActivity = activity as MainActivity
         database = mainActivity.dataFromDB!!
         dbDelete = DBDelete(mainActivity.dbHelper)
@@ -72,6 +52,17 @@ class LoggedIn : Fragment(), ReviewAdapter.ReviewClickListener {
         (activity as MainActivity).binding.ibProfile.setOnClickListener {
             findNavController().navigate(R.id.action_loggedIn_to_profileView)
         }
+
+        val callback: OnBackPressedCallback =
+            object : OnBackPressedCallback(true) {
+                override fun handleOnBackPressed() {
+                    database.user = null
+                    database.reviews.clear()
+                    SaveSharedPreference.setUserName(mainActivity, "")
+                    findNavController().popBackStack()
+                }
+            }
+        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, callback)
 
         binding.fab.setOnClickListener {
             findNavController().navigate(R.id.action_loggedIn_to_newReview)
@@ -94,7 +85,7 @@ class LoggedIn : Fragment(), ReviewAdapter.ReviewClickListener {
     }
 
     private fun loadReviews() {
-        var reviews = mutableListOf<Reviews>()
+        val reviews = mutableListOf<Reviews>()
         for (review: Reviews in database.reviews){
             if (review.userId == database.user.id){
                 reviews.add(review)

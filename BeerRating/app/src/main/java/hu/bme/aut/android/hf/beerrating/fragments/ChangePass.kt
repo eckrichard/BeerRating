@@ -12,18 +12,7 @@ import hu.bme.aut.android.hf.beerrating.R
 import hu.bme.aut.android.hf.beerrating.data.DataFromDB
 import hu.bme.aut.android.hf.beerrating.data.database.query.DBUpdate
 import hu.bme.aut.android.hf.beerrating.databinding.FragmentChangePassBinding
-import hu.bme.aut.android.hf.beerrating.databinding.FragmentLogInBinding
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [ChangePass.newInstance] factory method to
- * create an instance of this fragment.
- */
 class ChangePass : Fragment() {
     private lateinit var binding : FragmentChangePassBinding
     private lateinit var database: DataFromDB
@@ -50,22 +39,28 @@ class ChangePass : Fragment() {
         }
 
         binding.btnUpdate.setOnClickListener {
-            if (database.user.password == binding.etOldPass.text.toString()){
-                if(binding.etNewPass.text.toString().equals(binding.etNewPassCon.text.toString())){
-                    var pass: String = binding.etNewPass.text.toString()
+            if(binding.etOldPass.text.toString().isNotEmpty() &&
+                binding.etNewPass.text.toString().isNotEmpty() &&
+                binding.etNewPassCon.text.toString().isNotEmpty()
+            ){
+                if (database.user.password == binding.etOldPass.text.toString()){
+                    if(binding.etNewPass.text.toString().equals(binding.etNewPassCon.text.toString())){
+                        val pass: String = binding.etNewPass.text.toString()
 
-                    if(database != null){
                         dbUpdate.updatePass(pass, database)
                         findNavController().popBackStack()
                         Snackbar.make(it, R.string.passsaved, Snackbar.LENGTH_LONG).show()
                     }
+                    else {
+                        Snackbar.make(it, R.string.newpassincor, Snackbar.LENGTH_LONG).show()
+                    }
                 }
                 else {
-                    Snackbar.make(it, R.string.newpassincor, Snackbar.LENGTH_LONG).show()
+                    Snackbar.make(it, R.string.oldpassincor, Snackbar.LENGTH_LONG).show()
                 }
             }
             else {
-                Snackbar.make(it, R.string.oldpassincor, Snackbar.LENGTH_LONG).show()
+                Snackbar.make(it, R.string.emptyData, Snackbar.LENGTH_LONG).show()
             }
         }
     }

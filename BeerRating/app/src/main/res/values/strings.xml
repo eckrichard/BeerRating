@@ -51,4 +51,17 @@
     <string name="alreadyexist">Username or e-mail already taken!</string>
     <string name="regsuccess">Registration successful!</string>
     <string name="beerrating">BeerRating</string>
+    <string name="select_beer">Select beer</string>
+    <string name="select_category">Select category</string>
+    <string name="select_brewery">Select brewery</string>
+    <string name="selectbeerError">Select a beer please!</string>
+    <string name="newbeerError">Select beer and category please!</string>
+    <string name="select">Select from the list</string>
+    <string name="logging_in">Logging In...</string>
+    <string name="emptyData">Please complete all fields!</string>
+    <string name="categoryName">Category name:</string>
+    <string name="emptyBrewName">Please complete Brewery name fields!</string>
+    <string name="categoryExists">This category already exists!</string>
+    <string name="breweryExists">This brewery already exists!</string>
+    <string name="beerExists">This beer already exists!</string>
 </resources>

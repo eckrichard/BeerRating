@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">BeerRating</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <!-- Strings related to login -->
     <string name="mainText">Nincs bejelentkezve, ezért nem tudjuk megjeleníteni a korábban már értékelt söreit. Kérem jelentkezzen be vagy regisztráljon!</string>
     <string name="password">Jelszó:</string>
     <string name="username">Felhasználónév:</string>
@@ -54,4 +52,17 @@
     <string name="alreadyexist">A felhasználónév vagy az e-mail már foglalt!</string>
     <string name="regsuccess">Sikeres regisztráció!</string>
     <string name="beerrating">BeerRating</string>
+    <string name="select_beer">Válasz sört</string>
+    <string name="select_category">Válasz kategóriát</string>
+    <string name="select_brewery">Válasz sörfőzdét</string>
+    <string name="selectbeerError">Kérlek válasz sört!</string>
+    <string name="newbeerError">Kérlek válasz kategóriát és sörfőzdét!</string>
+    <string name="select">Válasz a listából</string>
+    <string name="logging_in">Bejelentkezés...</string>
+    <string name="emptyData">Kérem töltse ki az összes mezőt!</string>
+    <string name="categoryName">Kategória neve:</string>
+    <string name="emptyBrewName">Kérem töltse ki a Sörfőzde neve mezőt!</string>
+    <string name="categoryExists">Ez a kategória már létezik!</string>
+    <string name="breweryExists">Ez a sörfőzde már létezik!</string>
+    <string name="beerExists">Ez a sör már létezik!</string>
 </resources>

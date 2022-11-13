@@ -9,19 +9,10 @@ import androidx.navigation.fragment.findNavController
 import com.google.android.material.snackbar.Snackbar
 import hu.bme.aut.android.hf.beerrating.MainActivity
 import hu.bme.aut.android.hf.beerrating.R
+import hu.bme.aut.android.hf.beerrating.data.SaveSharedPreference
 import hu.bme.aut.android.hf.beerrating.data.database.query.DBSelect
 import hu.bme.aut.android.hf.beerrating.databinding.FragmentLogInBinding
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [LogIn.newInstance] factory method to
- * create an instance of this fragment.
- */
 class LogIn : Fragment() {
     private lateinit var binding : FragmentLogInBinding
 
@@ -38,32 +29,27 @@ class LogIn : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val mainActivity: MainActivity? = activity as MainActivity?
-        if (mainActivity != null) {
-            mainActivity.binding.ibProfile.setOnClickListener (null)
-        }
+        mainActivity!!.binding.ibProfile.setOnClickListener (null)
 
         binding.btnLoginLogin.setOnClickListener {
+            val database = mainActivity.dataFromDB
+            val dbSelect = DBSelect(mainActivity.dbHelper)
 
-            if (mainActivity != null) {
-                var database = mainActivity.dataFromDB
-                var dbSelect = DBSelect(mainActivity.dbHelper)
+            dbSelect.checkLogin(binding.etUsername.text.toString(), binding.etPassword.text.toString(), database)
 
-                dbSelect.checkLogin(binding.etUsername.text.toString(), binding.etPassword.text.toString(), database)
+            if (database != null) {
+                if (database.user != null && database.user.password.equals(binding.etPassword.text.toString())){
 
-                if (database != null) {
-                    if (database.user != null && database.user.password.equals(binding.etPassword.text.toString())){
-
-                        binding.etUsername.text.clear()
-                        binding.etPassword.text.clear()
-                        findNavController().navigate(R.id.action_logIn_to_loggedIn)
-                    }
-                    else {
-                        binding.etUsername.text.clear()
-                        binding.etPassword.text.clear()
-                        Snackbar.make(it, R.string.loginfailed, Snackbar.LENGTH_LONG).show()
-                    }
+                    binding.etUsername.text.clear()
+                    binding.etPassword.text.clear()
+                    SaveSharedPreference.setUserName(mainActivity, database.user.username)
+                    findNavController().navigate(R.id.action_logIn_to_loggedIn)
                 }
-
+                else {
+                    binding.etUsername.text.clear()
+                    binding.etPassword.text.clear()
+                    Snackbar.make(it, R.string.loginfailed, Snackbar.LENGTH_LONG).show()
+                }
             }
         }
     }

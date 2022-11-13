@@ -18,7 +18,8 @@
         <EditText
             android:id="@+id/etbeername"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/black" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -27,20 +28,29 @@
             android:textSize="18sp" />
 
         <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
             android:orientation="horizontal">
 
-            <Spinner
+            <TextView
                 android:id="@+id/spbeercategory"
-                android:layout_width="334dp"
-                android:layout_height="36dp" />
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="@android:drawable/editbox_background"
+                android:textColor="@color/black"
+                android:textColorHint="@color/black"
+                android:drawableEnd="@drawable/ic_arrow_down_24"
+                android:gravity="center_vertical"
+                android:hint="@string/select_category"
+                android:padding="12dp"/>
 
             <ImageButton
-                android:id="@+id/ibaddNewCat"
-                android:layout_width="36dp"
-                android:layout_height="36dp"
-                android:src="@drawable/ic_add_white_36dp"/>
+                android:id="@+id/ibaddNewCategory"
+                android:layout_width="48dp"
+                android:layout_height="match_parent"
+                android:src="@drawable/ic_add_white_36dp"
+                android:backgroundTint="@color/black"/>
+
         </LinearLayout>
 
         <TextView
@@ -58,6 +68,7 @@
                 android:id="@+id/etalc"
                 android:layout_width="95dp"
                 android:layout_height="wrap_content"
+                android:backgroundTint="@color/black"
                 android:inputType="numberDecimal|numberSigned" />
 
             <TextView
@@ -74,32 +85,43 @@
             android:textSize="18sp" />
 
         <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
             android:orientation="horizontal">
 
-            <Spinner
+            <TextView
                 android:id="@+id/spBeerBrewery"
-                android:layout_width="334dp"
-                android:layout_height="36dp" />
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="@android:drawable/editbox_background"
+                android:drawableEnd="@drawable/ic_arrow_down_24"
+                android:textColor="@color/black"
+                android:textColorHint="@color/black"
+                android:gravity="center_vertical"
+                android:hint="@string/select_brewery"
+                android:padding="12dp"/>
 
             <ImageButton
-                android:id="@+id/ibaddNewBrew"
-                android:layout_width="36dp"
-                android:layout_height="36dp"
-                android:src="@drawable/ic_add_white_36dp"/>
+                android:id="@+id/ibaddNewBrewery"
+                android:layout_width="48dp"
+                android:layout_height="match_parent"
+                android:src="@drawable/ic_add_white_36dp"
+                android:backgroundTint="@color/black" />
+
         </LinearLayout>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/beerDetails"
+            android:textColor="@color/black"
             android:textSize="18sp" />
 
         <EditText
             android:id="@+id/etBeerDetails"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/black" />
 
         <Button
             android:id="@+id/btnSave_nb"

@@ -100,6 +100,50 @@ public class DBSelect extends DBQuery {
         return exist.get();
     }
 
+    public void SelectUserByUsername(String username, DataFromDB data) {
+        String sql = "SELECT * FROM users u JOIN sex s ON u.sex_id = s.id " +
+        "WHERE username = ?";
+
+        Thread dbThread = new Thread(() -> {
+            this.getDbHelper().connect();
+            try {
+                Connection connection = this.getDbHelper().getConnection();
+                PreparedStatement statement = connection.prepareStatement(sql);
+                statement.setString(1, username);
+                ResultSet rs = statement.executeQuery();
+                if(rs.next()){
+                    Users user = new Users();
+                    user.setId(rs.getInt(1));
+                    user.setDob(rs.getDate(5));
+                    user.setEmail(rs.getString(2));
+                    user.setUsername(rs.getString(3));
+                    user.setForename(rs.getString(6));
+                    user.setSurename(rs.getString(7));
+                    user.setSexId(rs.getInt(8));
+                    user.setPassword(rs.getString(4));
+
+                    Sex sex = new Sex();
+                    sex.setId(rs.getInt(9));
+                    sex.setName(rs.getString(10));
+
+                    user.setSex(sex);
+                    data.setUser(user);
+                }
+                rs.close();
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
+            }
+        });
+        dbThread.start();
+        try
+        {
+            dbThread.join();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        this.getDbHelper().disconnect();
+    }
+
     public void LoadData(DataFromDB data){
         data.clear();
         this.getDbHelper().connect();

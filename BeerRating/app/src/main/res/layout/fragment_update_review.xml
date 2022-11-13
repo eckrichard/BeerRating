@@ -32,7 +32,11 @@
             android:id="@+id/ratingBar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:progressTint="#FFCC01"
+            android:secondaryProgressTint="@color/black"
+            android:progressBackgroundTint="#B8B8B8"
             android:layout_marginLeft="10dp"
+            android:rating="0.0"
             android:layout_marginTop="10dp"/>
 
         <TextView
@@ -45,7 +49,8 @@
             android:id="@+id/etOpinion"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="textEmailAddress" />
+            android:inputType="textEmailAddress"
+            android:backgroundTint="@color/black" />
 
         <Button
             android:id="@+id/btnSave_updateReview"

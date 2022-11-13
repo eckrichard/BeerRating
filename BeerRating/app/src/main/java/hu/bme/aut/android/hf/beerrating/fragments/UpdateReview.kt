@@ -16,16 +16,7 @@ import hu.bme.aut.android.hf.beerrating.databinding.FragmentUpdateReviewBinding
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
 
-/**
- * A simple [Fragment] subclass.
- * Use the [UpdateReview.newInstance] factory method to
- * create an instance of this fragment.
- */
 class UpdateReview : Fragment() {
     private lateinit var binding : FragmentUpdateReviewBinding
     private lateinit var database: DataFromDB

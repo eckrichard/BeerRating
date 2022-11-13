@@ -4,27 +4,14 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import hu.bme.aut.android.hf.beerrating.MainActivity
 import hu.bme.aut.android.hf.beerrating.R
 import hu.bme.aut.android.hf.beerrating.data.DataFromDB
 import hu.bme.aut.android.hf.beerrating.data.database.query.DBDelete
-import hu.bme.aut.android.hf.beerrating.data.database.query.DBSelect
 import hu.bme.aut.android.hf.beerrating.databinding.FragmentReviewViewBinding
 
-
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [ReviewView.newInstance] factory method to
- * create an instance of this fragment.
- */
 class ReviewView : Fragment() {
     private lateinit var binding : FragmentReviewViewBinding
 

@@ -5,7 +5,7 @@ class DatePickerHelper {
         return year.toString() + " " + getMonthFormat(month) + " " + day.toString()
     }
 
-    fun getMonthFormat(month: Int): String? {
+    fun getMonthFormat(month: Int): String {
         if (month == 1) return "JAN"
         if (month == 2) return "FEB"
         if (month == 3) return "MAR"
@@ -20,7 +20,7 @@ class DatePickerHelper {
         return if (month == 12) "DEC" else "JAN"
     }
 
-    fun getMonthFormat(month: String): String? {
+    fun getMonthFormat(month: String): String {
         if (month == "JAN") return "01"
         if (month == "FEB") return "02"
         if (month == "MAR") return "03"

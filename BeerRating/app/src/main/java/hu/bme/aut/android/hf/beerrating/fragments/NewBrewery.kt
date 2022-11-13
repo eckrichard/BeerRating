@@ -1,10 +1,10 @@
 package hu.bme.aut.android.hf.beerrating.fragments
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.snackbar.Snackbar
 import hu.bme.aut.android.hf.beerrating.MainActivity
@@ -13,18 +13,7 @@ import hu.bme.aut.android.hf.beerrating.data.DataFromDB
 import hu.bme.aut.android.hf.beerrating.data.database.query.DBInsert
 import hu.bme.aut.android.hf.beerrating.data.database.query.DBSelect
 import hu.bme.aut.android.hf.beerrating.databinding.FragmentNewBreweryBinding
-import hu.bme.aut.android.hf.beerrating.databinding.FragmentNewReviewBinding
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [NewBrewery.newInstance] factory method to
- * create an instance of this fragment.
- */
 class NewBrewery : Fragment() {
     private lateinit var binding : FragmentNewBreweryBinding
     private lateinit var database: DataFromDB
@@ -53,15 +42,32 @@ class NewBrewery : Fragment() {
         }
 
         binding.btnSaveBrew.setOnClickListener {
-            dbInsert.insertBrewery(binding.etbreweryName.text.toString(),
-                binding.etcountry.text.toString(),
-                binding.etetpostcode.text.toString().toInt(),
-                binding.etcity.text.toString(),
-                binding.etaddress.text.toString())
-            //dbSelect.LoadData(database)
-            dbSelect.refreshBreweries(database)
-            findNavController().popBackStack()
-            Snackbar.make(it, R.string.newbrewery, Snackbar.LENGTH_LONG).show()
+            if(binding.etbreweryName.text.toString().isNotEmpty()){
+                var exists = false
+                for (b in database.brewerys){
+                    if (b.name.toString().equals(binding.etbreweryName.text.toString(), ignoreCase = true)){
+                        exists = true
+                        break
+                    }
+                }
+                if(!exists){
+                    dbInsert.insertBrewery(binding.etbreweryName.text.toString(),
+                        binding.etcountry.text.toString(),
+                        binding.etetpostcode.text.toString().toInt(),
+                        binding.etcity.text.toString(),
+                        binding.etaddress.text.toString())
+                    dbSelect.refreshBreweries(database)
+                    findNavController().popBackStack()
+                    Snackbar.make(it, R.string.newbrewery, Snackbar.LENGTH_LONG).show()
+                }
+                else {
+                    Snackbar.make(it, R.string.breweryExists, Snackbar.LENGTH_LONG).show()
+                }
+            }
+            else {
+                Snackbar.make(it, R.string.emptyBrewName, Snackbar.LENGTH_LONG).show()
+            }
+
         }
     }
 }

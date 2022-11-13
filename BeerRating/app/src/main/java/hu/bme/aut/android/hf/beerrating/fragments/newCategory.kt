@@ -1,10 +1,10 @@
 package hu.bme.aut.android.hf.beerrating.fragments
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.snackbar.Snackbar
 import hu.bme.aut.android.hf.beerrating.MainActivity
@@ -12,21 +12,9 @@ import hu.bme.aut.android.hf.beerrating.R
 import hu.bme.aut.android.hf.beerrating.data.DataFromDB
 import hu.bme.aut.android.hf.beerrating.data.database.query.DBInsert
 import hu.bme.aut.android.hf.beerrating.data.database.query.DBSelect
-import hu.bme.aut.android.hf.beerrating.databinding.FragmentNewBreweryBinding
 import hu.bme.aut.android.hf.beerrating.databinding.FragmentNewCategoryBinding
-import hu.bme.aut.android.hf.beerrating.databinding.FragmentNewReviewBinding
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [newCategory.newInstance] factory method to
- * create an instance of this fragment.
- */
-class newCategory : Fragment() {
+class NewCategory : Fragment() {
     private lateinit var binding : FragmentNewCategoryBinding
     private lateinit var database: DataFromDB
     private lateinit var dbInsert: DBInsert
@@ -54,11 +42,27 @@ class newCategory : Fragment() {
         }
 
         binding.btnSaveNc.setOnClickListener {
-            dbInsert.insertCategory(binding.etbeername.text.toString())
-            //dbSelect.LoadData(database)
-            dbSelect.refreshCategories(database)
-            findNavController().popBackStack()
-            Snackbar.make(it, R.string.newcategory, Snackbar.LENGTH_LONG).show()
+            if(binding.etcategoryname.text.toString().isNotEmpty()){
+                var exists = false
+                for (c in database.categorys){
+                    if (c.name.toString().equals(binding.etcategoryname.text.toString(), ignoreCase = true)){
+                        exists = true
+                        break
+                    }
+                }
+                if(!exists){
+                    dbInsert.insertCategory(binding.etcategoryname.text.toString())
+                    dbSelect.refreshCategories(database)
+                    findNavController().popBackStack()
+                    Snackbar.make(it, R.string.newcategory, Snackbar.LENGTH_LONG).show()
+                }
+                else {
+                    Snackbar.make(it, R.string.categoryExists, Snackbar.LENGTH_LONG).show()
+                }
+            }
+            else {
+                Snackbar.make(it, R.string.emptyData, Snackbar.LENGTH_LONG).show()
+            }
         }
     }
 }

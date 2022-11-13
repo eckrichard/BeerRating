@@ -12,13 +12,14 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/breweryname"
+            android:text="@string/categoryName"
             android:textSize="18sp" />
 
         <EditText
-            android:id="@+id/etbeername"
+            android:id="@+id/etcategoryname"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/black" />
 
         <Button
             android:id="@+id/btnSave_nc"

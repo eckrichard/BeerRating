@@ -4,10 +4,10 @@ import android.app.AlertDialog
 import android.app.DatePickerDialog
 import android.content.Context
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.snackbar.Snackbar
 import hu.bme.aut.android.hf.beerrating.MainActivity
@@ -15,20 +15,7 @@ import hu.bme.aut.android.hf.beerrating.R
 import hu.bme.aut.android.hf.beerrating.data.DataFromDB
 import hu.bme.aut.android.hf.beerrating.data.database.query.DBUpdate
 import hu.bme.aut.android.hf.beerrating.databinding.FragmentUpdateProfileBinding
-import java.time.LocalDateTime
-import java.time.Month
-import java.util.*
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [UpdateProfile.newInstance] factory method to
- * create an instance of this fragment.
- */
 class UpdateProfile : Fragment() {
     private lateinit var binding : FragmentUpdateProfileBinding
     private lateinit var database: DataFromDB
@@ -54,10 +41,10 @@ class UpdateProfile : Fragment() {
         datePickerHelper = DatePickerHelper()
 
         val initdobList = database.user.dob.toString().split("-")
-        binding.btndobUP.setText(datePickerHelper
+        binding.btndobUP.text = datePickerHelper
             .makeDateString(initdobList.get(0).toInt(),
                 initdobList.get(1).toInt(),
-                initdobList.get(2).toInt()))
+                initdobList.get(2).toInt())
 
         var sexId = database.user.sexId
 
@@ -82,34 +69,42 @@ class UpdateProfile : Fragment() {
         }
 
         binding.btndobUP.setOnClickListener {
-            openDatePicker(it)
+            openDatePicker()
         }
 
         binding.btnUpdateUP.setOnClickListener {
-            if (binding.Female.isChecked)
-                sexId = 1
-            else if (binding.Male.isChecked)
-                sexId = 2
-            else
-                sexId = 3
+            if(binding.etEmail.text.toString().isNotEmpty() &&
+                binding.etForeName.text.toString().isNotEmpty() &&
+                binding.etSureName.text.toString().isNotEmpty()
+            ){
+                if (binding.Female.isChecked)
+                    sexId = 1
+                else if (binding.Male.isChecked)
+                    sexId = 2
+                else
+                    sexId = 3
 
-            val dobList = binding.btndobUP.text.toString().split(" ")
-            var day: String
-            if (dobList.get(0).toInt() <= 9)
-                day = "0" + dobList.get(2)
-            else
-                day = dobList.get(2)
+                val dobList = binding.btndobUP.text.toString().split(" ")
+                val day: String
+                if (dobList.get(0).toInt() <= 9)
+                    day = "0" + dobList.get(2)
+                else
+                    day = dobList.get(2)
 
-            val DoB = dobList.get(0) + "-" + datePickerHelper.getMonthFormat(dobList.get(1)) + "-" + day
+                val DoB = dobList.get(0) + "-" + datePickerHelper.getMonthFormat(dobList.get(1)) + "-" + day
 
-            dbUpdate.updateUser(binding.etEmail.text.toString(),
-                binding.etForeName.text.toString(),
-                binding.etSureName.text.toString(),
-                DoB,
-                sexId,
-                database)
-            findNavController().popBackStack()
-            Snackbar.make(it, R.string.updateprofile, Snackbar.LENGTH_LONG).show()
+                dbUpdate.updateUser(binding.etEmail.text.toString(),
+                    binding.etForeName.text.toString(),
+                    binding.etSureName.text.toString(),
+                    DoB,
+                    sexId,
+                    database)
+                findNavController().popBackStack()
+                Snackbar.make(it, R.string.updateprofile, Snackbar.LENGTH_LONG).show()
+            }
+            else{
+                Snackbar.make(it, R.string.emptyData, Snackbar.LENGTH_LONG).show()
+            }
         }
     }
 
@@ -117,7 +112,7 @@ class UpdateProfile : Fragment() {
         val dateSetListener =
             DatePickerDialog.OnDateSetListener { datePicker, year, month, day ->
                 var month = month
-                month = month + 1
+                month += 1
                 val date: String = datePickerHelper.makeDateString(day, month, year)
                 binding.btndobUP.setText(date)
             }
@@ -127,7 +122,7 @@ class UpdateProfile : Fragment() {
         datePickerDialog = DatePickerDialog(context, style, dateSetListener, year, month, day)
     }
 
-    fun openDatePicker(view: View?) {
+    fun openDatePicker() {
         datePickerDialog.show()
     }
 }
