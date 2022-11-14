@@ -19,7 +19,7 @@
             android:id="@+id/etbeername"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:backgroundTint="@color/black" />
+            style="@style/editTextStyle" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -68,7 +68,7 @@
                 android:id="@+id/etalc"
                 android:layout_width="95dp"
                 android:layout_height="wrap_content"
-                android:backgroundTint="@color/black"
+                style="@style/editTextStyle"
                 android:inputType="numberDecimal|numberSigned" />
 
             <TextView
@@ -121,7 +121,7 @@
             android:id="@+id/etBeerDetails"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:backgroundTint="@color/black" />
+            style="@style/editTextStyle" />
 
         <Button
             android:id="@+id/btnSave_nb"

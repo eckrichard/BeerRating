@@ -19,7 +19,7 @@
             android:id="@+id/etcategoryname"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:backgroundTint="@color/black" />
+            style="@style/editTextStyle" />
 
         <Button
             android:id="@+id/btnSave_nc"

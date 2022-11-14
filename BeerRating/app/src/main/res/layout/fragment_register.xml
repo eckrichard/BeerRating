@@ -20,7 +20,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textEmailAddress"
-            android:backgroundTint="@color/black" />
+            style="@style/editTextStyle" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -32,7 +32,7 @@
             android:id="@+id/etUsername"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:backgroundTint="@color/black" />
+            style="@style/editTextStyle" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -42,11 +42,10 @@
 
         <EditText
             android:id="@+id/etPassword"
+            style="@style/editTextStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="textPassword"
-            android:backgroundTint="@color/black" />
+            android:inputType="textPassword" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -58,9 +57,8 @@
             android:id="@+id/etPasswordAgain"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:ems="10"
             android:inputType="textPassword"
-            android:backgroundTint="@color/black" />
+            style="@style/editTextStyle" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -84,7 +82,7 @@
             android:id="@+id/etForeName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:backgroundTint="@color/black" />
+            style="@style/editTextStyle" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -96,7 +94,7 @@
             android:id="@+id/etSureName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:backgroundTint="@color/black" />
+            style="@style/editTextStyle" />
 
         <TextView
             android:layout_width="wrap_content"

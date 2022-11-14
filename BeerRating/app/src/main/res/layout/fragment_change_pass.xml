@@ -15,7 +15,7 @@
         android:id="@+id/etOldPass"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:backgroundTint="@color/black"/>
+        style="@style/editTextStyle"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -27,9 +27,8 @@
         android:id="@+id/etNewPass"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:ems="10"
         android:inputType="textPassword"
-        android:backgroundTint="@color/black"/>
+        style="@style/editTextStyle"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -41,9 +40,8 @@
         android:id="@+id/etNewPassCon"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:ems="10"
         android:inputType="textPassword"
-        android:backgroundTint="@color/black"/>
+        style="@style/editTextStyle"/>
 
     <Button
         android:id="@+id/btn_update"
