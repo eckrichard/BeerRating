@@ -61,7 +61,7 @@ class NewReview : Fragment() {
         binding.spBeer.setOnClickListener {
             spinnerDialog = Dialog(mainActivity)
             spinnerDialog.setContentView(R.layout.dialog_searchable_spinner)
-            spinnerDialog.window?.setLayout(650, 800)
+            spinnerDialog.window?.setLayout(800, 1000)
             spinnerDialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
             spinnerDialog.show()
 

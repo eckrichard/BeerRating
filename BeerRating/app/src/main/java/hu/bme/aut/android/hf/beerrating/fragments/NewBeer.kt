@@ -58,7 +58,7 @@ class NewBeer : Fragment() {
         binding.spbeercategory.setOnClickListener {
             spinnerDialogCategory = Dialog(mainActivity)
             spinnerDialogCategory.setContentView(R.layout.dialog_searchable_spinner)
-            spinnerDialogCategory.window?.setLayout(650, 800)
+            spinnerDialogCategory.window?.setLayout(800, 1000)
             spinnerDialogCategory.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
             spinnerDialogCategory.show()
 
@@ -103,7 +103,7 @@ class NewBeer : Fragment() {
         binding.spBeerBrewery.setOnClickListener {
             spinnerDialogBrewery = Dialog(mainActivity)
             spinnerDialogBrewery.setContentView(R.layout.dialog_searchable_spinner)
-            spinnerDialogBrewery.window?.setLayout(650, 800)
+            spinnerDialogBrewery.window?.setLayout(800, 1000)
             spinnerDialogBrewery.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
             spinnerDialogBrewery.show()
 

@@ -20,6 +20,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/etSelectBeer"
         android:hint="@string/select"
+        android:textSize="15sp"
         android:padding="12dp"
         android:singleLine="true"
         android:layout_marginTop="8dp"
