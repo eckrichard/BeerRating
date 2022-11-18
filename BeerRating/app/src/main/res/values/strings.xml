@@ -7,7 +7,7 @@
     <string name="username">Username:</string>
     <string name="e_mail">E-mail:</string>
     <string name="password_confirmation">Password confirmation:</string>
-    <string name="dob">Day of birth:</string>
+    <string name="dob">Date of birth:</string>
     <string name="forename">Forename:</string>
     <string name="surename">Surename:</string>
     <string name="sex">Sex:</string>
