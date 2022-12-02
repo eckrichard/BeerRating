@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/e_mail"
+            android:textSize="18sp" />
+
+        <EditText
+            android:id="@+id/etEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textEmailAddress"
+            android:text="elozo"
+            style="@style/editTextStyle" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/dob"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/btndob_UP"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/DatePickerStyle"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/forename"
+            android:textSize="18sp" />
+
+        <EditText
+            android:id="@+id/etForeName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="elozo"
+            style="@style/editTextStyle" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/surename"
+            android:textSize="18sp" />
+
+        <EditText
+            android:id="@+id/etSureName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="elozo"
+            style="@style/editTextStyle" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/sex"
+            android:textSize="18sp" />
+
+        <RadioGroup
+            android:id="@+id/radio_group"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="5dp">
+
+            <RadioButton
+                android:id="@+id/Female"
+                android:layout_width="wrap_content"
+                android:layout_height="20sp"
+                android:text="@string/female"
+                style="@style/RadioButtonColor"
+                android:textSize="15sp" />
+
+            <RadioButton
+                android:id="@+id/Male"
+                android:layout_width="wrap_content"
+                android:layout_height="20sp"
+                android:text="@string/male"
+                style="@style/RadioButtonColor"
+                android:textSize="15sp" />
+
+            <RadioButton
+                android:id="@+id/Other"
+                android:layout_width="wrap_content"
+                android:layout_height="20sp"
+                android:text="@string/other"
+                style="@style/RadioButtonColor"
+                android:textSize="15sp" />
+        </RadioGroup>
+
+        <Button
+            android:id="@+id/btn_update_UP"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:text="@string/updateProfile" />
+
+    </LinearLayout>
+</ScrollView>

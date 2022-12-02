@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/mainFragment">
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="hu.bme.aut.android.hf.beerrating.fragments.MainFragment"
+        android:label="fragment_main"
+        tools:layout="@layout/fragment_main" >
+        <action
+            android:id="@+id/action_mainFragment_to_register"
+            app:destination="@id/register" />
+        <action
+            android:id="@+id/action_mainFragment_to_logIn"
+            app:destination="@id/logIn" />
+        <action
+            android:id="@+id/action_mainFragment_to_loggedIn"
+            app:destination="@id/loggedIn" />
+    </fragment>
+    <fragment
+        android:id="@+id/newReview"
+        android:name="hu.bme.aut.android.hf.beerrating.fragments.NewReview"
+        android:label="fragment_new_review"
+        tools:layout="@layout/fragment_new_review" >
+        <action
+            android:id="@+id/action_newReview_to_addNewBeer"
+            app:destination="@id/addNewBeer" />
+        <action
+            android:id="@+id/action_newReview_to_profileView"
+            app:destination="@id/profileView" />
+    </fragment>
+    <fragment
+        android:id="@+id/loggedIn"
+        android:name="hu.bme.aut.android.hf.beerrating.fragments.LoggedIn"
+        android:label="fragment_logged_in"
+        tools:layout="@layout/fragment_logged_in" >
+        <action
+            android:id="@+id/action_loggedIn_to_newReview"
+            app:destination="@id/newReview" />
+        <action
+            android:id="@+id/action_loggedIn_to_reviewView"
+            app:destination="@id/reviewView" />
+        <action
+            android:id="@+id/action_loggedIn_to_profileView"
+            app:destination="@id/profileView" />
+        <action
+            android:id="@+id/action_loggedIn_to_updateReview"
+            app:destination="@id/updateReview" />
+    </fragment>
+    <fragment
+        android:id="@+id/addNewBeer"
+        android:name="hu.bme.aut.android.hf.beerrating.fragments.NewBeer"
+        android:label="fragment_add_new_beer"
+        tools:layout="@layout/fragment_add_new_beer" >
+        <action
+            android:id="@+id/action_addNewBeer_to_newBrewery"
+            app:destination="@id/newBrewery" />
+        <action
+            android:id="@+id/action_addNewBeer_to_newCategory"
+            app:destination="@id/newCategory" />
+        <action
+            android:id="@+id/action_addNewBeer_to_profileView"
+            app:destination="@id/profileView" />
+    </fragment>
+    <fragment
+        android:id="@+id/newBrewery"
+        android:name="hu.bme.aut.android.hf.beerrating.fragments.NewBrewery"
+        android:label="fragment_new_brewery"
+        tools:layout="@layout/fragment_new_brewery" >
+        <action
+            android:id="@+id/action_newBrewery_to_profileView"
+            app:destination="@id/profileView" />
+    </fragment>
+    <fragment
+        android:id="@+id/register"
+        android:name="hu.bme.aut.android.hf.beerrating.fragments.Register"
+        android:label="fragment_register"
+        tools:layout="@layout/fragment_register" >
+        <action
+            android:id="@+id/action_register_to_loggedIn"
+            app:destination="@id/loggedIn" />
+    </fragment>
+    <fragment
+        android:id="@+id/reviewView"
+        android:name="hu.bme.aut.android.hf.beerrating.fragments.ReviewView"
+        android:label="fragment_review_view"
+        tools:layout="@layout/fragment_review_view" >
+        <action
+            android:id="@+id/action_reviewView_to_updateReview"
+            app:destination="@id/updateReview" />
+        <action
+            android:id="@+id/action_reviewView_to_profileView"
+            app:destination="@id/profileView" />
+    </fragment>
+    <fragment
+        android:id="@+id/updateReview"
+        android:name="hu.bme.aut.android.hf.beerrating.fragments.UpdateReview"
+        android:label="fragment_update_review"
+        tools:layout="@layout/fragment_update_review" >
+        <action
+            android:id="@+id/action_updateReview_to_profileView"
+            app:destination="@id/profileView" />
+    </fragment>
+    <fragment
+        android:id="@+id/logIn"
+        android:name="hu.bme.aut.android.hf.beerrating.fragments.LogIn"
+        android:label="fragment_log_in"
+        tools:layout="@layout/fragment_log_in" >
+        <action
+            android:id="@+id/action_logIn_to_loggedIn"
+            app:destination="@id/loggedIn" />
+    </fragment>
+    <fragment
+        android:id="@+id/profileView"
+        android:name="hu.bme.aut.android.hf.beerrating.fragments.ProfileView"
+        android:label="fragment_profile_view"
+        tools:layout="@layout/fragment_profile_view" >
+        <action
+            android:id="@+id/action_profileView_to_updateProfile"
+            app:destination="@id/updateProfile" />
+        <action
+            android:id="@+id/action_profileView_to_changePass"
+            app:destination="@id/changePass" />
+    </fragment>
+    <fragment
+        android:id="@+id/updateProfile"
+        android:name="hu.bme.aut.android.hf.beerrating.fragments.UpdateProfile"
+        android:label="fragment_update_profile"
+        tools:layout="@layout/fragment_update_profile" >
+        <action
+            android:id="@+id/action_updateProfile_to_profileView"
+            app:destination="@id/profileView" />
+    </fragment>
+    <fragment
+        android:id="@+id/changePass"
+        android:name="hu.bme.aut.android.hf.beerrating.fragments.ChangePass"
+        android:label="fragment_change_pass"
+        tools:layout="@layout/fragment_change_pass" >
+        <action
+            android:id="@+id/action_changePass_to_profileView"
+            app:destination="@id/profileView" />
+    </fragment>
+    <fragment
+        android:id="@+id/newCategory"
+        android:name="hu.bme.aut.android.hf.beerrating.fragments.NewCategory"
+        android:label="fragment_new_category"
+        tools:layout="@layout/fragment_new_category" >
+        <action
+            android:id="@+id/action_newCategory_to_profileView"
+            app:destination="@id/profileView" />
+    </fragment>
+</navigation>
